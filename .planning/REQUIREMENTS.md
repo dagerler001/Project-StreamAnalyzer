@@ -59,12 +59,25 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
+| INPT-01 | Phase 1 | Pending |
+| INPT-02 | Phase 1 | Pending |
+| INPT-03 | Phase 1 | Pending |
+| PLAY-01 | Phase 1 | Pending |
+| PLAY-02 | Phase 1 | Pending |
+| PLAY-03 | Phase 1 | Pending |
+| ANLY-01 | Phase 1 | Pending |
+| ANLY-02 | Phase 2 | Pending |
+| ANLY-03 | Phase 2 | Pending |
+| SCOR-01 | Phase 3 | Pending |
+| SCOR-02 | Phase 3 | Pending |
+| SCOR-03 | Phase 3 | Pending |
+| REPT-01 | Phase 3 | Pending |
 
 **Coverage:**
 - v1 requirements: 13 total
-- Mapped to phases: 0
-- Unmapped: 13 ⚠️
+- Mapped to phases: 13
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-01-27*
-*Last updated: 2026-01-27 after initial definition*
+*Last updated: 2026-01-27 after roadmap creation*
