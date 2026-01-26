@@ -1,34 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+    <div className="app">
+      <header className="app-header">
+        <p className="app-kicker">Stream ABR Advisor</p>
+        <h1 className="app-title">Ingest + RFC Validation</h1>
+        <p className="app-subtitle">
+          Phase 1 foundation for playlist intake, structure checks, and ladder
+          baseline extraction.
         </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      </header>
+
+      <main className="app-main">
+        <section className="panel">
+          <header className="panel-header">
+            <h2>Ingest</h2>
+            <p className="panel-lede">
+              Drop in a playlist URL, channel/VOD ID, or local file to begin.
+            </p>
+          </header>
+          <div className="panel-body">
+            <p className="placeholder">Ingest controls will live here.</p>
+          </div>
+        </section>
+
+        <section className="panel">
+          <header className="panel-header">
+            <h2>Results</h2>
+            <p className="panel-lede">
+              Validation findings, classification, and ladder snapshots appear
+              here.
+            </p>
+          </header>
+          <div className="panel-body">
+            <p className="placeholder">Results output will render here.</p>
+          </div>
+        </section>
+      </main>
+    </div>
   )
 }
 
