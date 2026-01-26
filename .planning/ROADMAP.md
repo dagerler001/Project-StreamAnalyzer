@@ -30,7 +30,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Scaffold app shell for Phase 1 ingest/results
+- [x] 01-01-PLAN.md — Scaffold app shell for Phase 1 ingest/results
 - [ ] 01-02-PLAN.md — Implement parsing, validation, classification, ladder extraction
 - [ ] 01-03-PLAN.md — Build ingest UI and results rendering
 
@@ -68,6 +68,6 @@ Phases execute in numeric order: 2 → 2.1 → 2.2 → 3 → 3.1 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Ingest + RFC Validation | 0/TBD | Not started | - |
+| 1. Ingest + RFC Validation | 1/3 | In progress | - |
 | 2. Sampling + Metrics | 0/TBD | Not started | - |
 | 3. Scoring + Report | 0/TBD | Not started | - |
