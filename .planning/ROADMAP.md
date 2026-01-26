@@ -27,10 +27,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. User sees clear validation feedback when playlist tags or required tag placement are invalid.
   3. User can see whether the playlist is master or media and whether it is live or VOD.
   4. User can view the extracted ABR ladder (bitrate, resolution, codecs) from the playlist.
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: TBD
+- [ ] 01-01-PLAN.md — Scaffold app shell for Phase 1 ingest/results
+- [ ] 01-02-PLAN.md — Implement parsing, validation, classification, ladder extraction
+- [ ] 01-03-PLAN.md — Build ingest UI and results rendering
 
 ### Phase 2: Sampling + Metrics
 **Goal**: Users can sample a time window and inspect codecs and bitrate over time.
