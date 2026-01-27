@@ -204,3 +204,225 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+/* Results Container */
+.results-container {
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+}
+
+.results-section {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.results-section-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-strong);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Error State */
+.error-state {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.error-message {
+  margin: 0;
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(214, 69, 69, 0.1);
+  border: 1px solid rgba(214, 69, 69, 0.3);
+  color: var(--error);
+  font-weight: 500;
+}
+
+/* Validation Panel */
+.validation-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.validation-success {
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: rgba(91, 139, 222, 0.08);
+  border: 1px solid rgba(91, 139, 222, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.validation-icon {
+  font-size: 1.5rem;
+  color: var(--info);
+}
+
+.validation-empty-message {
+  margin: 0;
+  color: var(--ink-strong);
+  font-weight: 500;
+}
+
+.validation-warning-banner {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: rgba(229, 168, 68, 0.15);
+  border: 1px solid rgba(229, 168, 68, 0.3);
+  color: var(--ink-strong);
+  font-size: 0.9rem;
+}
+
+.validation-issues {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.validation-issue {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+}
+
+.validation-issue-badge {
+  flex-shrink: 0;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  height: fit-content;
+}
+
+.validation-issue-content {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.validation-issue-message {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink-strong);
+}
+
+.validation-issue-hint {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+/* Classification Badges */
+.classification-badges {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.classification-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.classification-badge-primary {
+  background: var(--brand);
+  color: white;
+  box-shadow: 0 2px 8px rgba(91, 139, 222, 0.25);
+}
+
+.classification-badge-secondary {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  color: var(--ink-strong);
+}
+
+.classification-badge-icon {
+  font-size: 1.2rem;
+}
+
+.classification-badge-label {
+  font-size: 0.95rem;
+}
+
+/* Ladder Table */
+.ladder-table-container {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.ladder-section {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.ladder-section-title {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ladder-table-wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border-soft);
+}
+
+.ladder-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+}
+
+.ladder-header-row {
+  background: var(--surface-muted);
+}
+
+.ladder-header-cell {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.ladder-row:not(:last-child) .ladder-cell {
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.ladder-cell {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: var(--ink-strong);
+}
+
+.ladder-empty {
+  padding: 2rem;
+  text-align: center;
+}
+
+.ladder-empty-message {
+  margin: 0;
+  color: var(--ink-muted);
+  font-weight: 500;
+}

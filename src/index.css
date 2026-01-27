@@ -17,6 +17,11 @@
   --surface: #fbf9f6;
   --surface-muted: #f1ece6;
   --border-soft: rgba(62, 55, 48, 0.12);
+  --brand: #5b8bde;
+  --brand-dark: #4a75c5;
+  --error: #d64545;
+  --warning: #e5a844;
+  --info: #5b8bde;
 }
 
 * {

@@ -1,6 +1,9 @@
 import './App.css'
 import { InputPanel, type InputType } from './components/InputPanel'
 import { usePlaylistAnalysis } from './hooks/usePlaylistAnalysis'
+import { ValidationPanel } from './components/ValidationPanel'
+import { ClassificationBadges } from './components/ClassificationBadges'
+import { LadderTable } from './components/LadderTable'
 
 function App() {
   const { state, analyze } = usePlaylistAnalysis()
@@ -56,8 +59,24 @@ function App() {
               </div>
             )}
             {state.status === 'success' && (
-              <div className="results-state">
-                <p className="placeholder">Results loaded! (Rendering components in Task 3)</p>
+              <div className="results-container">
+                <section className="results-section">
+                  <h3 className="results-section-title">Validation</h3>
+                  <ValidationPanel
+                    issues={state.result.validation}
+                    reliable={state.result.reliable}
+                  />
+                </section>
+
+                <section className="results-section">
+                  <h3 className="results-section-title">Classification</h3>
+                  <ClassificationBadges classification={state.result.classification} />
+                </section>
+
+                <section className="results-section">
+                  <h3 className="results-section-title">ABR Ladder</h3>
+                  <LadderTable ladder={state.result.ladder} />
+                </section>
               </div>
             )}
           </div>
