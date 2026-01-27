@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+*.tsbuildinfo
+
+# Generated files
+vite.config.js
+vite.config.d.ts
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Test coverage
+coverage/
+*.lcov
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE folders
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.temp
+C
