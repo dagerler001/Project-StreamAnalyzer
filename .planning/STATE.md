@@ -10,29 +10,29 @@ See: .planning/PROJECT.md (updated 2026-01-27)
 ## Current Position
 
 Phase: 2 of 3 (Sampling + Metrics)
-Plan: 1 of TBD in current phase
+Plan: 2 of TBD in current phase
 Status: In progress
-Last activity: 2026-01-27 — Completed 02-01-PLAN.md
+Last activity: 2026-01-27 — Completed 02-02-PLAN.md
 
 Progress: [███░░░░░░░] 33% (1/3 phases complete, phase 2 in progress)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 3.63 min
-- Total execution time: 0.24 hours
+- Total plans completed: 5
+- Average duration: 3.50 min
+- Total execution time: 0.29 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1. Ingest + RFC Validation | 3 | 11.5 min | 3.83 min |
-| 2. Sampling + Metrics | 1 | 3 min | 3.00 min |
+| 2. Sampling + Metrics | 2 | 6 min | 3.00 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (5 min), 01-02 (2.5 min), 01-03 (4 min), 02-01 (3 min)
-- Trend: Stable at ~3-4 min/plan
+- Last 5 plans: 01-02 (2.5 min), 01-03 (4 min), 02-01 (3 min), 02-02 (3 min)
+- Trend: Very stable at ~3 min/plan
 
 *Updated after each plan completion*
 
@@ -57,6 +57,10 @@ Recent decisions affecting current work:
 | 02-01 | Return partial results with diagnostics | Sampling continues when some segments fail, tracking all errors |
 | 02-01 | 3-point rolling average for bitrate | Smooths spikes while preserving trend visibility |
 | 02-01 | VOD vs live window modes | VOD uses offset; live anchors from end for consistent behavior |
+| 02-02 | Duration presets as buttons | Prevents invalid durations, guides users to sensible sample windows |
+| 02-02 | Conditional offset/anchor inputs by stream type | VOD uses absolute offset; live uses anchor from edge |
+| 02-02 | Store manifest and baseUrl in hook for reuse | Avoids re-fetching master playlist on every sample run |
+| 02-02 | Default to first video variant | Top bitrate variant (sorted descending) is most common target |
 
 ### Pending Todos
 
@@ -72,6 +76,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-27 13:03
-Stopped at: Completed 02-01-PLAN.md
+Last session: 2026-01-27 13:09
+Stopped at: Completed 02-02-PLAN.md
 Resume file: None
