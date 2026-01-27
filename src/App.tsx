@@ -1,6 +1,11 @@
 import './App.css'
+import { InputPanel, type InputType } from './components/InputPanel'
 
 function App() {
+  const handleAnalyze = (inputType: InputType, value: string | File) => {
+    console.log('Analyze:', inputType, value)
+  }
+
   return (
     <div className="app">
       <header className="app-header">
@@ -21,7 +26,7 @@ function App() {
             </p>
           </header>
           <div className="panel-body">
-            <p className="placeholder">Ingest controls will live here.</p>
+            <InputPanel onAnalyze={handleAnalyze} />
           </div>
         </section>
 

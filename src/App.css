@@ -77,3 +77,130 @@
   color: var(--ink-subtle);
   font-weight: 500;
 }
+
+/* Input Panel */
+.input-panel {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Segmented Control */
+.segmented-control {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.segmented-control-option {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.segmented-control-option:hover {
+  background: var(--surface-muted);
+  color: var(--ink-strong);
+}
+
+.segmented-control-option.active {
+  background: var(--brand);
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+/* Input Fields */
+.input-field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.input-label {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink-strong);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.15s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--brand);
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input::placeholder {
+  color: var(--ink-subtle);
+}
+
+.input-file {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink-strong);
+  font-size: 0.95rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.input-file:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input-file-name {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+/* Button */
+.button-primary {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  background: var(--brand);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.button-primary:hover:not(:disabled) {
+  background: var(--brand-dark);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.button-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
