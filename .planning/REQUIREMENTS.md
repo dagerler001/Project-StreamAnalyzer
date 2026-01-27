@@ -9,19 +9,19 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Inputs
 
-- [ ] **INPT-01**: User can paste a direct M3U8 URL to analyze
-- [ ] **INPT-02**: User can enter a channel/VOD ID and the app resolves it to an M3U8 URL (mock CDN API in v1)
-- [ ] **INPT-03**: User can upload or select a local M3U8 playlist file for analysis
+- [x] **INPT-01**: User can paste a direct M3U8 URL to analyze
+- [x] **INPT-02**: User can enter a channel/VOD ID and the app resolves it to an M3U8 URL (mock CDN API in v1)
+- [x] **INPT-03**: User can upload or select a local M3U8 playlist file for analysis
 
 ### Playlist Handling
 
-- [ ] **PLAY-01**: App validates playlist tags and required tag placement per RFC 8216
-- [ ] **PLAY-02**: App enforces master vs media playlist type validation before analysis
-- [ ] **PLAY-03**: App detects whether a playlist is live or VOD and shows the result
+- [x] **PLAY-01**: App validates playlist tags and required tag placement per RFC 8216
+- [x] **PLAY-02**: App enforces master vs media playlist type validation before analysis
+- [x] **PLAY-03**: App detects whether a playlist is live or VOD and shows the result
 
 ### Analysis Core
 
-- [ ] **ANLY-01**: App extracts ABR ladder variants (bitrate, resolution, codecs) and visualizes the ladder
+- [x] **ANLY-01**: App extracts ABR ladder variants (bitrate, resolution, codecs) and visualizes the ladder
 - [ ] **ANLY-02**: App inspects audio/video codecs using playlist attributes and probe data
 - [ ] **ANLY-03**: User can set a sample duration in seconds, and the app computes bitrate over time for that window
 
@@ -59,13 +59,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INPT-01 | Phase 1 | Pending |
-| INPT-02 | Phase 1 | Pending |
-| INPT-03 | Phase 1 | Pending |
-| PLAY-01 | Phase 1 | Pending |
-| PLAY-02 | Phase 1 | Pending |
-| PLAY-03 | Phase 1 | Pending |
-| ANLY-01 | Phase 1 | Pending |
+| INPT-01 | Phase 1 | Complete |
+| INPT-02 | Phase 1 | Complete |
+| INPT-03 | Phase 1 | Complete |
+| PLAY-01 | Phase 1 | Complete |
+| PLAY-02 | Phase 1 | Complete |
+| PLAY-03 | Phase 1 | Complete |
+| ANLY-01 | Phase 1 | Complete |
 | ANLY-02 | Phase 2 | Pending |
 | ANLY-03 | Phase 2 | Pending |
 | SCOR-01 | Phase 3 | Pending |

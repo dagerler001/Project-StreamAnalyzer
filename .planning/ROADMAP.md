@@ -12,7 +12,7 @@ This roadmap delivers a local-only tool that ingests HLS playlists, validates th
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Ingest + RFC Validation** - Users can ingest playlists and see validated structure with a visible ladder baseline.
+- [x] **Phase 1: Ingest + RFC Validation** - Users can ingest playlists and see validated structure with a visible ladder baseline.
 - [ ] **Phase 2: Sampling + Metrics** - Users can sample a time window and see bitrate/codec metrics over time.
 - [ ] **Phase 3: Scoring + Report** - Users receive explainable scores and concrete recommendations in a report.
 
@@ -31,8 +31,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md — Scaffold app shell for Phase 1 ingest/results
-- [ ] 01-02-PLAN.md — Implement parsing, validation, classification, ladder extraction
-- [ ] 01-03-PLAN.md — Build ingest UI and results rendering
+- [x] 01-02-PLAN.md — Implement parsing, validation, classification, ladder extraction
+- [x] 01-03-PLAN.md — Build ingest UI and results rendering
 
 ### Phase 2: Sampling + Metrics
 **Goal**: Users can sample a time window and inspect codecs and bitrate over time.
@@ -68,6 +68,6 @@ Phases execute in numeric order: 2 → 2.1 → 2.2 → 3 → 3.1 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Ingest + RFC Validation | 1/3 | In progress | - |
+| 1. Ingest + RFC Validation | 3/3 | Complete | 2026-01-27 |
 | 2. Sampling + Metrics | 0/TBD | Not started | - |
 | 3. Scoring + Report | 0/TBD | Not started | - |

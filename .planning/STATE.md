@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-01-27)
 
 **Core value:** Provide actionable, OTT-grade encoding and ladder recommendations from a short sample of a stream.
-**Current focus:** Phase 1 - Ingest + RFC Validation
+**Current focus:** Phase 2 - Sampling + Metrics
 
 ## Current Position
 
-Phase: 1 of 3 (Ingest + RFC Validation)
-Plan: 3 of 3 in current phase
-Status: Phase complete
-Last activity: 2026-01-27 — Completed 01-03-PLAN.md
+Phase: 2 of 3 (Sampling + Metrics)
+Plan: 0 of TBD in current phase
+Status: Ready to plan
+Last activity: 2026-01-27 — Phase 1 complete and verified
 
-Progress: [█████████░] 100%
+Progress: [███░░░░░░░] 33% (1/3 phases)
 
 ## Performance Metrics
 
