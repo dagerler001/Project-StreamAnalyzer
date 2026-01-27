@@ -13,7 +13,7 @@ This roadmap delivers a local-only tool that ingests HLS playlists, validates th
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Ingest + RFC Validation** - Users can ingest playlists and see validated structure with a visible ladder baseline.
-- [ ] **Phase 2: Sampling + Metrics** - Users can sample a time window and see bitrate/codec metrics over time.
+- [x] **Phase 2: Sampling + Metrics** - Users can sample a time window and see bitrate/codec metrics over time.
 - [ ] **Phase 3: Scoring + Report** - Users receive explainable scores and concrete recommendations in a report.
 
 ## Phase Details
@@ -42,10 +42,12 @@ Plans:
   1. User can set a sample duration in seconds and see metrics computed for that window.
   2. User can see detected audio and video codecs from the sampled media.
   3. User can view bitrate-over-time results for the sampled window.
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: TBD
+- [x] 02-01-PLAN.md — Build sampling analysis primitives and probing helpers
+- [x] 02-02-PLAN.md — Add sampling controls and hook state wiring
+- [x] 02-03-PLAN.md — Render codecs and bitrate-over-time metrics
 
 ### Phase 3: Scoring + Report
 **Goal**: Users can receive explainable scores and recommendations in an on-screen report.
@@ -69,5 +71,5 @@ Phases execute in numeric order: 2 → 2.1 → 2.2 → 3 → 3.1 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Ingest + RFC Validation | 3/3 | Complete | 2026-01-27 |
-| 2. Sampling + Metrics | 0/TBD | Not started | - |
+| 2. Sampling + Metrics | 3/3 | Complete | 2026-01-27 |
 | 3. Scoring + Report | 0/TBD | Not started | - |

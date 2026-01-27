@@ -22,8 +22,8 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Analysis Core
 
 - [x] **ANLY-01**: App extracts ABR ladder variants (bitrate, resolution, codecs) and visualizes the ladder
-- [ ] **ANLY-02**: App inspects audio/video codecs using playlist attributes and probe data
-- [ ] **ANLY-03**: User can set a sample duration in seconds, and the app computes bitrate over time for that window
+- [x] **ANLY-02**: App inspects audio/video codecs using playlist attributes and probe data
+- [x] **ANLY-03**: User can set a sample duration in seconds, and the app computes bitrate over time for that window
 
 ### Scoring & Recommendations
 
@@ -66,8 +66,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PLAY-02 | Phase 1 | Complete |
 | PLAY-03 | Phase 1 | Complete |
 | ANLY-01 | Phase 1 | Complete |
-| ANLY-02 | Phase 2 | Pending |
-| ANLY-03 | Phase 2 | Pending |
+| ANLY-02 | Phase 2 | Complete |
+| ANLY-03 | Phase 2 | Complete |
 | SCOR-01 | Phase 3 | Pending |
 | SCOR-02 | Phase 3 | Pending |
 | SCOR-03 | Phase 3 | Pending |
