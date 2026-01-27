@@ -4,24 +4,34 @@ import { usePlaylistAnalysis } from './hooks/usePlaylistAnalysis'
 import { ValidationPanel } from './components/ValidationPanel'
 import { ClassificationBadges } from './components/ClassificationBadges'
 import { LadderTable } from './components/LadderTable'
+import { SampleControls } from './components/SampleControls'
 
 function App() {
-  const { state, analyze } = usePlaylistAnalysis()
+  const {
+    state,
+    analyze,
+    sampleState,
+    sampleConfig,
+    updateSampleConfig,
+    runSample,
+  } = usePlaylistAnalysis()
 
   const handleAnalyze = (inputType: InputType, value: string | File) => {
     analyze(inputType, value)
   }
 
   const isLoading = state.status === 'loading'
+  const isSampling = sampleState.status === 'loading'
+  const canSample = state.status === 'success'
 
   return (
     <div className="app">
       <header className="app-header">
         <p className="app-kicker">Stream ABR Advisor</p>
-        <h1 className="app-title">Ingest + RFC Validation</h1>
+        <h1 className="app-title">Sampling + Metrics</h1>
         <p className="app-subtitle">
-          Phase 1 foundation for playlist intake, structure checks, and ladder
-          baseline extraction.
+          Phase 2: Configure sample windows, probe bitrate, and extract codec
+          telemetry from live or VOD streams.
         </p>
       </header>
 
@@ -60,6 +70,19 @@ function App() {
             )}
             {state.status === 'success' && (
               <div className="results-container">
+                <section className="results-section">
+                  <h3 className="results-section-title">Sample Configuration</h3>
+                  <SampleControls
+                    sampleConfig={sampleConfig}
+                    onConfigChange={updateSampleConfig}
+                    onRunSample={runSample}
+                    streamType={state.result.classification.streamType}
+                    ladder={state.result.ladder}
+                    disabled={!canSample}
+                    isLoading={isSampling}
+                  />
+                </section>
+
                 <section className="results-section">
                   <h3 className="results-section-title">Validation</h3>
                   <ValidationPanel
