@@ -5,6 +5,8 @@ import { ValidationPanel } from './components/ValidationPanel'
 import { ClassificationBadges } from './components/ClassificationBadges'
 import { LadderTable } from './components/LadderTable'
 import { SampleControls } from './components/SampleControls'
+import { BitrateChart } from './components/BitrateChart'
+import { CodecSummary } from './components/CodecSummary'
 
 function App() {
   const {
@@ -14,6 +16,7 @@ function App() {
     sampleConfig,
     updateSampleConfig,
     runSample,
+    retrySample,
   } = usePlaylistAnalysis()
 
   const handleAnalyze = (inputType: InputType, value: string | File) => {
@@ -100,6 +103,82 @@ function App() {
                   <h3 className="results-section-title">ABR Ladder</h3>
                   <LadderTable ladder={state.result.ladder} />
                 </section>
+
+                {/* Sample Results Section */}
+                {sampleState.status !== 'idle' && (
+                  <section className="results-section">
+                    <h3 className="results-section-title">Sample Results</h3>
+
+                    {sampleState.status === 'loading' && (
+                      <div className="sample-loading">
+                        <p className="placeholder">Sampling stream...</p>
+                      </div>
+                    )}
+
+                    {sampleState.status === 'error' && (
+                      <div className="sample-error">
+                        <p className="error-message">{sampleState.error}</p>
+                        <button
+                          className="button-retry"
+                          onClick={retrySample}
+                          type="button"
+                        >
+                          Retry Sample
+                        </button>
+                      </div>
+                    )}
+
+                    {sampleState.status === 'success' && (
+                      <div className="sample-metrics">
+                        {/* Reliability Warning Banner */}
+                        {!sampleState.result.reliable && (
+                          <div className="sample-warning-banner">
+                            <strong>Partial Results:</strong> Some issues were encountered during sampling.
+                            {sampleState.result.diagnostics.errors.length > 0 && (
+                              <ul className="diagnostics-list">
+                                {sampleState.result.diagnostics.errors.map((error, idx) => (
+                                  <li key={`error-${idx}`}>{error}</li>
+                                ))}
+                              </ul>
+                            )}
+                            {sampleState.result.diagnostics.warnings.length > 0 && (
+                              <ul className="diagnostics-list">
+                                {sampleState.result.diagnostics.warnings.map((warning, idx) => (
+                                  <li key={`warning-${idx}`}>{warning}</li>
+                                ))}
+                              </ul>
+                            )}
+                            {sampleState.result.diagnostics.missingHeaders > 0 && (
+                              <p className="diagnostics-note">
+                                {sampleState.result.diagnostics.missingHeaders} of {sampleState.result.diagnostics.segmentCount} segments
+                                had missing Content-Length headers.
+                              </p>
+                            )}
+                            <button
+                              className="button-retry-inline"
+                              onClick={retrySample}
+                              type="button"
+                            >
+                              Retry Sample
+                            </button>
+                          </div>
+                        )}
+
+                        {/* Codec Summary */}
+                        <div className="metrics-subsection">
+                          <h4 className="metrics-subsection-title">Detected Codecs</h4>
+                          <CodecSummary codecs={sampleState.result.codecs} />
+                        </div>
+
+                        {/* Bitrate Chart */}
+                        <div className="metrics-subsection">
+                          <h4 className="metrics-subsection-title">Bitrate Over Time</h4>
+                          <BitrateChart bitrateSeries={sampleState.result.bitrateSeries} />
+                        </div>
+                      </div>
+                    )}
+                  </section>
+                )}
               </div>
             )}
           </div>
