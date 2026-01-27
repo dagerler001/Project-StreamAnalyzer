@@ -1,10 +1,12 @@
 import { useState } from "react"
-import type { AnalysisResult } from "../types/analysis"
+import type { AnalysisResult, SampleConfig, SampleResult } from "../types/analysis"
+import type { Manifest } from "m3u8-parser"
 import { resolveInput } from "../analysis/resolver/resolveInput"
 import { parseM3U8 } from "../analysis/playlist/parseM3U8"
 import { validatePlaylist } from "../analysis/playlist/validatePlaylist"
 import { classifyPlaylist } from "../analysis/playlist/classifyPlaylist"
 import { extractLadder } from "../analysis/ladder/extractLadder"
+import { analyzeSample } from "../analysis/sampling/analyzeSample"
 import type { InputType } from "../components/InputPanel"
 
 type AnalysisState =
@@ -13,18 +15,39 @@ type AnalysisState =
   | { status: "success"; result: AnalysisResult }
   | { status: "error"; error: string; partialResult?: Partial<AnalysisResult> }
 
+type SampleState =
+  | { status: "idle" }
+  | { status: "loading" }
+  | { status: "success"; result: SampleResult }
+  | { status: "error"; error: string; partialResult?: Partial<SampleResult> }
+
 export const usePlaylistAnalysis = () => {
   const [state, setState] = useState<AnalysisState>({ status: "idle" })
+  const [sampleState, setSampleState] = useState<SampleState>({ status: "idle" })
+
+  // Track analyzed playlist data for sampling reuse
+  const [lastPlaylistUrl, setLastPlaylistUrl] = useState<string | undefined>()
+  const [parsedManifest, setParsedManifest] = useState<Manifest | undefined>()
+
+  // Sample configuration state
+  const [sampleConfig, setSampleConfig] = useState<SampleConfig>({
+    durationSeconds: 30,
+    startOffsetSeconds: 0,
+    liveAnchorSeconds: 30,
+    selectedRenditionIndex: 0,
+  })
 
   const analyze = async (inputType: InputType, value: string | File) => {
     setState({ status: "loading" })
 
     try {
       let playlistText: string
+      let baseUrl: string | undefined
 
       // Step 1: Get playlist text based on input type
       if (inputType === "url") {
         const url = value as string
+        baseUrl = url
         const response = await fetch(url)
         if (!response.ok) {
           throw new Error(`Failed to fetch playlist: ${response.statusText}`)
@@ -36,15 +59,17 @@ export const usePlaylistAnalysis = () => {
         if (!resolveResult.success) {
           throw new Error(resolveResult.message)
         }
+        baseUrl = resolveResult.url
         const response = await fetch(resolveResult.url)
         if (!response.ok) {
           throw new Error(`Failed to fetch playlist: ${response.statusText}`)
         }
         playlistText = await response.text()
       } else {
-        // file
+        // file - no base URL available
         const file = value as File
         playlistText = await file.text()
+        baseUrl = undefined
       }
 
       // Step 2: Parse the playlist
@@ -69,6 +94,17 @@ export const usePlaylistAnalysis = () => {
         reliable,
       }
 
+      // Store data for sampling reuse
+      setLastPlaylistUrl(baseUrl)
+      setParsedManifest(parsed.manifest)
+
+      // Default to first video variant for sampling
+      const firstVideoIndex = 0
+      setSampleConfig((prev) => ({
+        ...prev,
+        selectedRenditionIndex: firstVideoIndex,
+      }))
+
       setState({ status: "success", result })
     } catch (error) {
       const errorMessage =
@@ -82,8 +118,61 @@ export const usePlaylistAnalysis = () => {
     }
   }
 
+  const runSample = async () => {
+    if (!parsedManifest) {
+      setSampleState({
+        status: "error",
+        error: "No playlist analyzed yet. Please analyze a playlist first.",
+      })
+      return
+    }
+
+    if (state.status !== "success") {
+      setSampleState({
+        status: "error",
+        error: "Playlist analysis must be successful before sampling.",
+      })
+      return
+    }
+
+    setSampleState({ status: "loading" })
+
+    try {
+      const result = await analyzeSample(
+        parsedManifest,
+        lastPlaylistUrl,
+        sampleConfig,
+        state.result.classification.streamType
+      )
+
+      setSampleState({ status: "success", result })
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error occurred during sampling"
+
+      setSampleState({
+        status: "error",
+        error: errorMessage,
+      })
+    }
+  }
+
+  const retrySample = async () => {
+    // Reuse existing config and run sample again
+    await runSample()
+  }
+
+  const updateSampleConfig = (updates: Partial<SampleConfig>) => {
+    setSampleConfig((prev) => ({ ...prev, ...updates }))
+  }
+
   return {
     state,
     analyze,
+    sampleState,
+    sampleConfig,
+    updateSampleConfig,
+    runSample,
+    retrySample,
   }
 }
