@@ -1,10 +1,15 @@
 import './App.css'
 import { InputPanel, type InputType } from './components/InputPanel'
+import { usePlaylistAnalysis } from './hooks/usePlaylistAnalysis'
 
 function App() {
+  const { state, analyze } = usePlaylistAnalysis()
+
   const handleAnalyze = (inputType: InputType, value: string | File) => {
-    console.log('Analyze:', inputType, value)
+    analyze(inputType, value)
   }
+
+  const isLoading = state.status === 'loading'
 
   return (
     <div className="app">
@@ -26,7 +31,7 @@ function App() {
             </p>
           </header>
           <div className="panel-body">
-            <InputPanel onAnalyze={handleAnalyze} />
+            <InputPanel onAnalyze={handleAnalyze} isLoading={isLoading} />
           </div>
         </section>
 
@@ -39,7 +44,22 @@ function App() {
             </p>
           </header>
           <div className="panel-body">
-            <p className="placeholder">Results output will render here.</p>
+            {state.status === 'idle' && (
+              <p className="placeholder">Results output will render here.</p>
+            )}
+            {state.status === 'loading' && (
+              <p className="placeholder">Analyzing playlist...</p>
+            )}
+            {state.status === 'error' && (
+              <div className="error-state">
+                <p className="error-message">{state.error}</p>
+              </div>
+            )}
+            {state.status === 'success' && (
+              <div className="results-state">
+                <p className="placeholder">Results loaded! (Rendering components in Task 3)</p>
+              </div>
+            )}
           </div>
         </section>
       </main>
