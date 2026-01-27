@@ -10,28 +10,29 @@ See: .planning/PROJECT.md (updated 2026-01-27)
 ## Current Position
 
 Phase: 2 of 3 (Sampling + Metrics)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-01-27 — Phase 1 complete and verified
+Plan: 1 of TBD in current phase
+Status: In progress
+Last activity: 2026-01-27 — Completed 02-01-PLAN.md
 
-Progress: [███░░░░░░░] 33% (1/3 phases)
+Progress: [███░░░░░░░] 33% (1/3 phases complete, phase 2 in progress)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
-- Average duration: 3.83 min
-- Total execution time: 0.19 hours
+- Total plans completed: 4
+- Average duration: 3.63 min
+- Total execution time: 0.24 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 1. Ingest + RFC Validation | 3 | 3 | 3.83 min |
+| 1. Ingest + RFC Validation | 3 | 11.5 min | 3.83 min |
+| 2. Sampling + Metrics | 1 | 3 min | 3.00 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (5 min), 01-02 (2.5 min), 01-03 (4 min)
-- Trend: Stable at ~4 min/plan
+- Last 5 plans: 01-01 (5 min), 01-02 (2.5 min), 01-03 (4 min), 02-01 (3 min)
+- Trend: Stable at ~3-4 min/plan
 
 *Updated after each plan completion*
 
@@ -51,6 +52,11 @@ Recent decisions affecting current work:
 | 01-03 | Segmented control for input type selection | Clear visual affordance for URL/ID/File modes |
 | 01-03 | Show unreliable results with warning banner | Users see partial results even with errors, but reliability is flagged |
 | 01-03 | Auto-focus URL input | Most common input method, reduces friction |
+| 02-01 | Use HEAD requests for bitrate probing | Avoids full segment downloads while extracting Content-Length |
+| 02-01 | Prioritize CODECS attribute over probing | Playlist attributes authoritative; probe only when missing |
+| 02-01 | Return partial results with diagnostics | Sampling continues when some segments fail, tracking all errors |
+| 02-01 | 3-point rolling average for bitrate | Smooths spikes while preserving trend visibility |
+| 02-01 | VOD vs live window modes | VOD uses offset; live anchors from end for consistent behavior |
 
 ### Pending Todos
 
@@ -66,6 +72,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-27 00:23
-Stopped at: Completed 01-03-PLAN.md (Phase 1 complete)
+Last session: 2026-01-27 13:03
+Stopped at: Completed 02-01-PLAN.md
 Resume file: None
