@@ -118,6 +118,7 @@ export type ScoreResult = {
   warnings: Warning[]
   recommendations: Recommendation[]
   originalLadder: LadderResult
+  recommendedLadder: LadderResult
 }
 
 // ============================================================================
