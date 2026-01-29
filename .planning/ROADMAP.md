@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Ingest + RFC Validation** - Users can ingest playlists and see validated structure with a visible ladder baseline.
 - [x] **Phase 2: Sampling + Metrics** - Users can sample a time window and see bitrate/codec metrics over time.
-- [ ] **Phase 3: Scoring + Report** - Users receive explainable scores and concrete recommendations in a report.
+- [x] **Phase 3: Scoring + Report** - Users receive explainable scores and concrete recommendations in a report.
 
 ## Phase Details
 
@@ -65,8 +65,8 @@ Plans:
 - [x] 03-02-PLAN.md — Implement scoring rules (TDD)
 - [x] 03-03-PLAN.md — Build scoring engine and recommendation system
 - [x] 03-04-PLAN.md — Create score visualization components (gauge, bar chart)
-- [ ] 03-05-PLAN.md — Build warning list, recommendation list, ladder comparison
-- [ ] 03-06-PLAN.md — Integrate ReportPanel into app with full UI
+- [x] 03-05-PLAN.md — Build warning list, recommendation list, ladder comparison
+- [x] 03-06-PLAN.md — Integrate ReportPanel into app with full UI
 
 ## Progress
 
@@ -77,4 +77,4 @@ Phases execute in numeric order: 2 → 2.1 → 2.2 → 3 → 3.1 → 4
 |-------|----------------|--------|-----------|
 | 1. Ingest + RFC Validation | 3/3 | Complete | 2026-01-27 |
 | 2. Sampling + Metrics | 3/3 | Complete | 2026-01-27 |
-| 3. Scoring + Report | 4/6 | In Progress | - |
+| 3. Scoring + Report | 6/6 | Complete | 2026-01-29 |

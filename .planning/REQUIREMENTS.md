@@ -27,13 +27,13 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Scoring & Recommendations
 
-- [ ] **SCOR-01**: App produces best-practice warnings and an overall score with explainable reasons
-- [ ] **SCOR-02**: App recommends concrete ABR ladder improvements based on the analysis
-- [ ] **SCOR-03**: User can select a policy profile to apply a specific ruleset to scoring
+- [x] **SCOR-01**: App produces best-practice warnings and an overall score with explainable reasons
+- [x] **SCOR-02**: App recommends concrete ABR ladder improvements based on the analysis
+- [x] **SCOR-03**: User can select a policy profile to apply a specific ruleset to scoring
 
 ### Reporting
 
-- [ ] **REPT-01**: App shows an on-screen report with score, charts, and recommendations
+- [x] **REPT-01**: App shows an on-screen report with score, charts, and recommendations
 
 ## v2 Requirements
 
@@ -68,10 +68,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ANLY-01 | Phase 1 | Complete |
 | ANLY-02 | Phase 2 | Complete |
 | ANLY-03 | Phase 2 | Complete |
-| SCOR-01 | Phase 3 | Pending |
-| SCOR-02 | Phase 3 | Pending |
-| SCOR-03 | Phase 3 | Pending |
-| REPT-01 | Phase 3 | Pending |
+| SCOR-01 | Phase 3 | Complete |
+| SCOR-02 | Phase 3 | Complete |
+| SCOR-03 | Phase 3 | Complete |
+| REPT-01 | Phase 3 | Complete |
 
 **Coverage:**
 - v1 requirements: 13 total
@@ -80,4 +80,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-01-27*
-*Last updated: 2026-01-27 after roadmap creation*
+*Last updated: 2026-01-29 after Phase 3 completion*
