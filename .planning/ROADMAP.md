@@ -77,4 +77,4 @@ Phases execute in numeric order: 2 → 2.1 → 2.2 → 3 → 3.1 → 4
 |-------|----------------|--------|-----------|
 | 1. Ingest + RFC Validation | 3/3 | Complete | 2026-01-27 |
 | 2. Sampling + Metrics | 3/3 | Complete | 2026-01-27 |
-| 3. Scoring + Report | 0/TBD | Not started | - |
+| 3. Scoring + Report | 0/6 | Planned | - |
