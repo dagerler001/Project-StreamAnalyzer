@@ -121,6 +121,15 @@ export type ScoreResult = {
   recommendedLadder: LadderResult
 }
 
+/**
+ * Score state for UI state management
+ */
+export type ScoreState =
+  | { status: 'idle' }
+  | { status: 'loading' }
+  | { status: 'success'; result: ScoreResult }
+  | { status: 'error'; error: string }
+
 // ============================================================================
 // Recommendation Types
 // ============================================================================
