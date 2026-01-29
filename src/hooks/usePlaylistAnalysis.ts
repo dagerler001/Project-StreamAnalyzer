@@ -1,12 +1,14 @@
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import type { AnalysisResult, SampleConfig, SampleResult } from "../types/analysis"
 import type { Manifest } from "m3u8-parser"
+import type { ScoreResult } from "../types/scoring"
 import { resolveInput } from "../analysis/resolver/resolveInput"
 import { parseM3U8 } from "../analysis/playlist/parseM3U8"
 import { validatePlaylist } from "../analysis/playlist/validatePlaylist"
 import { classifyPlaylist } from "../analysis/playlist/classifyPlaylist"
 import { extractLadder } from "../analysis/ladder/extractLadder"
 import { analyzeSample } from "../analysis/sampling/analyzeSample"
+import { runScoring } from "../scoring/engine/scoreEngine"
 import type { InputType } from "../components/InputPanel"
 
 type AnalysisState =
@@ -21,9 +23,17 @@ type SampleState =
   | { status: "success"; result: SampleResult }
   | { status: "error"; error: string; partialResult?: Partial<SampleResult> }
 
+type ScoreState =
+  | { status: "idle" }
+  | { status: "loading" }
+  | { status: "success"; result: ScoreResult }
+  | { status: "error"; error: string }
+
 export const usePlaylistAnalysis = () => {
   const [state, setState] = useState<AnalysisState>({ status: "idle" })
   const [sampleState, setSampleState] = useState<SampleState>({ status: "idle" })
+  const [scoreState, setScoreState] = useState<ScoreState>({ status: "idle" })
+  const [selectedPolicy, setSelectedPolicy] = useState<string>("generic")
 
   // Track analyzed playlist data for sampling reuse
   const [lastPlaylistUrl, setLastPlaylistUrl] = useState<string | undefined>()
@@ -166,6 +176,40 @@ export const usePlaylistAnalysis = () => {
     setSampleConfig((prev) => ({ ...prev, ...updates }))
   }
 
+  const runScoringAction = useCallback(() => {
+    if (state.status !== "success") return
+
+    setScoreState({ status: "loading" })
+
+    try {
+      const context = {
+        ladder: state.result.ladder,
+        classification: state.result.classification,
+        sampleResult: sampleState.status === "success" ? sampleState.result : undefined,
+      }
+
+      const result = runScoring(context, selectedPolicy)
+      setScoreState({ status: "success", result })
+    } catch (err) {
+      setScoreState({
+        status: "error",
+        error: err instanceof Error ? err.message : "Scoring failed",
+      })
+    }
+  }, [state, sampleState, selectedPolicy])
+
+  // Auto-run scoring when analysis completes successfully
+  const runScoringIfIdle = useCallback(() => {
+    if (state.status === "success" && scoreState.status === "idle") {
+      runScoringAction()
+    }
+  }, [state, scoreState, runScoringAction])
+
+  // Trigger auto-run scoring when analysis completes
+  if (state.status === "success" && scoreState.status === "idle") {
+    runScoringIfIdle()
+  }
+
   return {
     state,
     analyze,
@@ -174,5 +218,9 @@ export const usePlaylistAnalysis = () => {
     updateSampleConfig,
     runSample,
     retrySample,
+    scoreState,
+    selectedPolicy,
+    setSelectedPolicy,
+    runScoring: runScoringAction,
   }
 }

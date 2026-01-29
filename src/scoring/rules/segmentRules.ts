@@ -41,8 +41,16 @@ export const segmentDurationRule: ScoringRule = {
   name: 'Segment Duration',
   category: 'segment',
   check: (context: AnalysisContext): RuleResult => {
-    const { window, bitrateSeries } = context.sampleResult
     const { streamType } = context.classification
+    
+    // Check if sample result is available
+    if (!context.sampleResult) {
+      return createResult(true, 50, [
+        createWarning('info', 'No sample data available for segment duration analysis')
+      ])
+    }
+    
+    const { window, bitrateSeries } = context.sampleResult
     
     if (bitrateSeries.length === 0 && window.actualDurationSeconds === 0) {
       return createResult(false, 0, [
@@ -147,7 +155,6 @@ export const keyframeAlignmentRule: ScoringRule = {
   category: 'segment',
   check: (context: AnalysisContext): RuleResult => {
     const { video } = context.ladder
-    const { window } = context.sampleResult
     
     if (video.length === 0) {
       return createResult(false, 0, [
@@ -163,8 +170,9 @@ export const keyframeAlignmentRule: ScoringRule = {
     // we infer from segment duration and frame rate
     // A reasonable keyframe interval is typically 2-4 seconds
     
-    // Estimate segment duration
-    const segmentDuration = window.actualDurationSeconds > 0 ? window.actualDurationSeconds / 5 
+    // Estimate segment duration from sample result if available
+    const segmentDuration = context.sampleResult?.window.actualDurationSeconds && context.sampleResult.window.actualDurationSeconds > 0 
+      ? context.sampleResult.window.actualDurationSeconds / 5 
       : video[0]?.frameRate ? 6 : 6 // Default assumption
 
     // Check frame rates are consistent across variants

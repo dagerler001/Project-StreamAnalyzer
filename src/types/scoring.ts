@@ -35,7 +35,7 @@ export type RuleCategory = 'ladder' | 'codec' | 'segment' | 'metadata'
 export type AnalysisContext = {
   ladder: LadderResult
   classification: PlaylistClassification
-  sampleResult: SampleResult
+  sampleResult?: SampleResult
 }
 
 // ============================================================================
