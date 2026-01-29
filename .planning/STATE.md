@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-01-27)
 ## Current Position
 
 Phase: 3 of 3 (Scoring + Report)
-Plan: 4 of 6 in current phase
+Plan: 5 of 6 in current phase
 Status: In progress
-Last activity: 2026-01-29 — Completed 03-04 Score Visualization Components
+Last activity: 2026-01-29 — Completed 03-05 Report Content Components
 
-Progress: [████████░░] 80% (2.4/3 phases complete)
+Progress: [█████████░] 90% (2.7/3 phases complete)
 
 ## Performance Metrics
 
@@ -29,7 +29,7 @@ Progress: [████████░░] 80% (2.4/3 phases complete)
 |-------|-------|-------|----------|
 | 1. Ingest + RFC Validation | 3 | 11.5 min | 3.83 min |
 | 2. Sampling + Metrics | 3 | 9 min | 3.00 min |
-| 3. Scoring + Report | 3 | 19 min | 6.33 min |
+| 3. Scoring + Report | 4 | 23 min | 5.75 min |
 
 **Recent Trend:**
 - Last 5 plans: 01-03 (4 min), 02-01 (3 min), 02-02 (3 min), 02-03 (3 min)
@@ -75,6 +75,9 @@ Recent decisions affecting current work:
 | 03-04 | Color coding: green >=80, yellow >=60, red <60 | Intuitive score interpretation following standard patterns |
 | 03-04 | Score labels: Excellent (90-100), Good (80-89), Fair (60-79), Poor (<60) | Four-tier system provides clear user feedback |
 | 03-04 | Native details/summary elements for expandable sections | No JavaScript state needed, accessible by default |
+| 03-05 | Group warnings and recommendations by severity | Better visual hierarchy, users see most important items first |
+| 03-05 | Card-style layout for recommendations with type badges | Clear visual distinction between add/remove/modify actions |
+| 03-05 | Ladder diff highlighting (green=added, red=removed, yellow=modified) | Immediate visual recognition of recommended changes |
 | 03-03 | Weighted scoring with equal category contribution | Policy defines rule weights; categories contribute equally to overall score |
 | 03-03 | Recommendation deduplication by severity | Keep highest severity when duplicate IDs found during consolidation |
 | 03-03 | Ladder optimization order: modify → remove → add | Modifications first, then removals, then additions with final sort by bitrate |
@@ -103,7 +106,7 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-01-29
-Stopped at: Completed 03-04 Score Visualization Components
+Stopped at: Completed 03-05 Report Content Components
 Resume file: None
 
 Config (if exists):
