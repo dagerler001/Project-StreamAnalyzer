@@ -40,4 +40,9 @@ yarn-error.log*
 # Temporary files
 *.tmp
 *.temp
-C
+
+# Playwright test results
+test-results/
+playwright-report/
+playwright/.cache/
+
