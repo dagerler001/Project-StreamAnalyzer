@@ -61,10 +61,10 @@ Plans:
 **Plans**: 6 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — Create scoring types and policy profiles
-- [ ] 03-02-PLAN.md — Implement scoring rules (TDD)
-- [ ] 03-03-PLAN.md — Build scoring engine and recommendation system
-- [ ] 03-04-PLAN.md — Create score visualization components (gauge, bar chart)
+- [x] 03-01-PLAN.md — Create scoring types and policy profiles
+- [x] 03-02-PLAN.md — Implement scoring rules (TDD)
+- [x] 03-03-PLAN.md — Build scoring engine and recommendation system
+- [x] 03-04-PLAN.md — Create score visualization components (gauge, bar chart)
 - [ ] 03-05-PLAN.md — Build warning list, recommendation list, ladder comparison
 - [ ] 03-06-PLAN.md — Integrate ReportPanel into app with full UI
 
@@ -77,4 +77,4 @@ Phases execute in numeric order: 2 → 2.1 → 2.2 → 3 → 3.1 → 4
 |-------|----------------|--------|-----------|
 | 1. Ingest + RFC Validation | 3/3 | Complete | 2026-01-27 |
 | 2. Sampling + Metrics | 3/3 | Complete | 2026-01-27 |
-| 3. Scoring + Report | 0/6 | Planned | - |
+| 3. Scoring + Report | 4/6 | In Progress | - |
