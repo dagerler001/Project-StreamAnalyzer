@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-01-27)
 ## Current Position
 
 Phase: 3 of 3 (Scoring + Report)
-Plan: 1 of TBD in current phase
+Plan: 2 of TBD in current phase
 Status: In progress
-Last activity: 2026-01-29 — Completed 03-01 Scoring Types + Policy Profiles
+Last activity: 2026-01-29 — Completed 03-02 Scoring Rules Implementation
 
-Progress: [███████░░░] 70% (2.1/3 phases complete)
+Progress: [███████░░░] 73% (2.2/3 phases complete)
 
 ## Performance Metrics
 
@@ -29,7 +29,7 @@ Progress: [███████░░░] 70% (2.1/3 phases complete)
 |-------|-------|-------|----------|
 | 1. Ingest + RFC Validation | 3 | 11.5 min | 3.83 min |
 | 2. Sampling + Metrics | 3 | 9 min | 3.00 min |
-| 3. Scoring + Report | 1 | 7 min | 7.00 min |
+| 3. Scoring + Report | 2 | 13 min | 6.50 min |
 
 **Recent Trend:**
 - Last 5 plans: 01-03 (4 min), 02-01 (3 min), 02-02 (3 min), 02-03 (3 min)
@@ -68,6 +68,9 @@ Recent decisions affecting current work:
 | 03-01 | Policy-based rule engine with configurable weights | Different use cases (Apple devices vs Google VP9 vs generic) need different scoring criteria |
 | 03-01 | Scores normalized to 0-100 scale | Consistent scale enables meaningful aggregation and user understanding |
 | 03-01 | Recommendations as specific actions | "Add 240p variant at 250 Kbps" is more useful than "Improve ladder" |
+| 03-02 | Rule helper functions reduce boilerplate | createWarning(), createRecommendation(), createResult() standardize rule output |
+| 03-02 | TDD approach with 4 test cases per rule | Perfect, minor issues, major issues, edge cases ensure robustness |
+| 03-02 | Rule registry pattern with getRuleById() | Enables dynamic rule lookup by scoring engine |
 
 ### Pending Todos
 
@@ -92,7 +95,7 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-01-29
-Stopped at: Completed 03-01 Scoring Types + Policy Profiles
+Stopped at: Completed 03-02 Scoring Rules Implementation
 Resume file: None
 
 Config (if exists):
