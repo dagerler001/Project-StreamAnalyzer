@@ -759,3 +759,418 @@
   color: var(--ink-muted);
   font-weight: 500;
 }
+
+/* ============================================================================
+   Report Components - Warning List
+   ============================================================================ */
+
+.warning-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.warning-list-empty {
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: rgba(91, 139, 222, 0.08);
+  border: 1px solid rgba(91, 139, 222, 0.2);
+}
+
+.warning-list-success {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.warning-list-icon {
+  font-size: 1.5rem;
+  color: var(--info);
+}
+
+.warning-list-message {
+  margin: 0;
+  color: var(--ink-strong);
+  font-weight: 500;
+}
+
+.warning-group {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.warning-item {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+}
+
+.warning-badge {
+  flex-shrink: 0;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  height: fit-content;
+}
+
+.warning-content {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.warning-message {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink-strong);
+}
+
+.warning-hint {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+.warning-severity-error .warning-message {
+  color: var(--error);
+}
+
+.warning-severity-warning .warning-message {
+  color: var(--warning);
+}
+
+.warning-severity-info .warning-message {
+  color: var(--info);
+}
+
+/* ============================================================================
+   Report Components - Recommendation List
+   ============================================================================ */
+
+.recommendation-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.recommendation-list-empty {
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: rgba(91, 139, 222, 0.08);
+  border: 1px solid rgba(91, 139, 222, 0.2);
+}
+
+.recommendation-list-success {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.recommendation-list-icon {
+  font-size: 1.5rem;
+  color: var(--info);
+}
+
+.recommendation-list-message {
+  margin: 0;
+  color: var(--ink-strong);
+  font-weight: 500;
+}
+
+.recommendation-group {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.recommendation-item {
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.recommendation-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.recommendation-severity {
+  font-size: 0.75rem;
+}
+
+.recommendation-severity-critical {
+  color: var(--error);
+}
+
+.recommendation-severity-warning {
+  color: var(--warning);
+}
+
+.recommendation-severity-suggestion {
+  color: var(--info);
+}
+
+.recommendation-type-badge {
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.recommendation-type-add {
+  background: rgba(91, 222, 139, 0.15);
+  color: var(--success);
+  border: 1px solid rgba(91, 222, 139, 0.3);
+}
+
+.recommendation-type-remove {
+  background: rgba(214, 69, 69, 0.15);
+  color: var(--error);
+  border: 1px solid rgba(214, 69, 69, 0.3);
+}
+
+.recommendation-type-modify {
+  background: rgba(229, 168, 68, 0.15);
+  color: var(--warning);
+  border: 1px solid rgba(229, 168, 68, 0.3);
+}
+
+.recommendation-type-general {
+  background: var(--surface-muted);
+  color: var(--ink-muted);
+  border: 1px solid var(--border-soft);
+}
+
+.recommendation-content {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.recommendation-message {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink-strong);
+  line-height: 1.5;
+}
+
+.recommendation-details {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+.recommendation-variant-change {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  background: var(--surface-muted);
+  font-size: 0.88rem;
+  font-family: "Monaco", "Consolas", monospace;
+}
+
+.variant-change-label {
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+.variant-change-value {
+  color: var(--ink-strong);
+  font-weight: 600;
+}
+
+/* ============================================================================
+   Report Components - Ladder Comparison
+   ============================================================================ */
+
+.ladder-comparison {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.ladder-comparison-empty {
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: rgba(91, 139, 222, 0.08);
+  border: 1px solid rgba(91, 139, 222, 0.2);
+}
+
+.ladder-comparison-success {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ladder-comparison-icon {
+  font-size: 1.5rem;
+  color: var(--info);
+}
+
+.ladder-comparison-message {
+  margin: 0;
+  color: var(--ink-strong);
+  font-weight: 500;
+}
+
+.ladder-comparison-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.ladder-comparison-section-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink-strong);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ladder-comparison-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.ladder-comparison-column {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.ladder-comparison-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ladder-comparison-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-strong);
+}
+
+.ladder-comparison-count {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+/* Ladder variant highlighting */
+.ladder-variant-added {
+  background: rgba(91, 222, 139, 0.08);
+}
+
+.ladder-variant-added .ladder-cell {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.ladder-variant-removed {
+  background: rgba(214, 69, 69, 0.08);
+}
+
+.ladder-variant-removed .ladder-cell {
+  color: var(--error);
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.ladder-variant-modified {
+  background: rgba(229, 168, 68, 0.08);
+}
+
+.ladder-variant-modified .ladder-cell {
+  color: var(--ink-strong);
+}
+
+.ladder-old-value {
+  color: var(--ink-muted);
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.ladder-arrow {
+  color: var(--ink-muted);
+  margin: 0 0.25rem;
+}
+
+.ladder-new-value {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.ladder-comparison-legend {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-soft);
+}
+
+.ladder-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ladder-legend-marker {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.ladder-legend-added {
+  background: rgba(91, 222, 139, 0.2);
+  color: var(--success);
+}
+
+.ladder-legend-removed {
+  background: rgba(214, 69, 69, 0.2);
+  color: var(--error);
+}
+
+.ladder-legend-modified {
+  background: rgba(229, 168, 68, 0.2);
+  color: var(--warning);
+}
+
+/* ============================================================================
+   Report Components - Score Colors
+   ============================================================================ */
+
+.score-excellent {
+  color: var(--success);
+}
+
+.score-good {
+  color: var(--success);
+}
+
+.score-fair {
+  color: var(--warning);
+}
+
+.score-poor {
+  color: var(--error);
+}
