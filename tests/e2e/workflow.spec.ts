@@ -23,20 +23,20 @@ test.describe('Stream ABR Advisor - UAT Workflow', () => {
 
   test('should have input methods available', async ({ page }) => {
     // Verify all three input methods are present
-    await expect(page.getByText('M3U8 URL')).toBeVisible()
-    await expect(page.getByText('Channel / VOD ID')).toBeVisible()
-    await expect(page.getByText('Local File')).toBeVisible()
+    await expect(page.getByRole('button', { name: 'URL' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Channel/VOD ID' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Local File' })).toBeVisible()
   })
 
   test('complete workflow: URL input → validation → sample → score', async ({ page }) => {
     // Step 1: Enter a sample M3U8 URL
     const sampleUrl = 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8'
     
-    // Find and click the M3U8 URL radio button
-    await page.getByRole('radio', { name: /M3U8 URL/i }).click()
+    // Click the URL button in segmented control (should be selected by default)
+    await page.getByRole('button', { name: 'URL' }).click()
     
     // Fill in the URL input
-    const urlInput = page.locator('input[type="text"]').first()
+    const urlInput = page.locator('input[type="url"]')
     await urlInput.fill(sampleUrl)
     
     // Click the analyze button
@@ -71,11 +71,11 @@ test.describe('Stream ABR Advisor - UAT Workflow', () => {
   })
 
   test('should handle Channel/VOD ID input', async ({ page }) => {
-    // Select Channel/VOD ID radio button
-    await page.getByRole('radio', { name: /Channel.*VOD ID/i }).click()
+    // Select Channel/VOD ID button
+    await page.getByRole('button', { name: 'Channel/VOD ID' }).click()
     
     // Verify the input field changes
-    const input = page.locator('input[type="text"]').first()
+    const input = page.locator('#id-input')
     await expect(input).toBeVisible()
     
     // Fill in a sample ID
@@ -87,8 +87,8 @@ test.describe('Stream ABR Advisor - UAT Workflow', () => {
   })
 
   test('should have file upload option', async ({ page }) => {
-    // Select Local File radio button
-    await page.getByRole('radio', { name: /Local File/i }).click()
+    // Select Local File button
+    await page.getByRole('button', { name: 'Local File' }).click()
     
     // Verify file input is present
     await expect(page.locator('input[type="file"]')).toBeVisible()
@@ -107,9 +107,9 @@ test.describe('Stream ABR Advisor - UAT Workflow', () => {
   test('should display classification badges after analysis', async ({ page }) => {
     // This test requires a successful analysis
     // Using a mock or test URL that would typically work
-    await page.getByRole('radio', { name: /M3U8 URL/i }).click()
+    await page.getByRole('button', { name: 'URL' }).click()
     
-    const urlInput = page.locator('input[type="text"]').first()
+    const urlInput = page.locator('input[type="url"]')
     await urlInput.fill('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')
     
     await page.getByRole('button', { name: /Analyze/i }).click()
@@ -137,9 +137,9 @@ test.describe('Stream ABR Advisor - Error Handling', () => {
   })
 
   test('should handle invalid URL gracefully', async ({ page }) => {
-    await page.getByRole('radio', { name: /M3U8 URL/i }).click()
+    await page.getByRole('button', { name: 'URL' }).click()
     
-    const urlInput = page.locator('input[type="text"]').first()
+    const urlInput = page.locator('input[type="url"]')
     await urlInput.fill('not-a-valid-url')
     
     await page.getByRole('button', { name: /Analyze/i }).click()
@@ -153,7 +153,7 @@ test.describe('Stream ABR Advisor - Error Handling', () => {
   })
 
   test('should handle empty input', async ({ page }) => {
-    await page.getByRole('radio', { name: /M3U8 URL/i }).click()
+    await page.getByRole('button', { name: 'URL' }).click()
     
     // Try to analyze without entering anything
     const analyzeButton = page.getByRole('button', { name: /Analyze/i })

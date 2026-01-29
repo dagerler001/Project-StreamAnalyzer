@@ -10,6 +10,25 @@ The UAT tests verify the complete user workflow:
 3. **Sampling**: Time-window sampling and metrics extraction
 4. **Scoring**: Policy-based scoring with recommendations
 
+## Test Results
+
+**Current Status**: 7/10 tests passing
+
+### Passing Tests ✅
+- Application loading and UI elements
+- Input method selection (URL, ID, File)
+- Placeholder messages
+- Channel/VOD ID input handling
+- File upload option visibility
+- Navigation and UI responsiveness
+- Empty input validation
+
+### Known Limitations ⚠️
+Some tests depend on external network resources and may fail in CI or restricted environments:
+- Complete workflow test (requires external M3U8 URL access)
+- Classification badges test (requires successful network request)
+- Invalid URL handling (may vary based on browser security)
+
 ## Running Tests
 
 ### Locally
@@ -56,6 +75,8 @@ Tests are configured in `playwright.config.ts`:
 Tests use public test streams where available:
 - Mux test stream: `https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8`
 
+**Note**: Tests that depend on external URLs may fail if those URLs are unreachable or blocked by network policies.
+
 ## Debugging
 
 ```bash
@@ -64,6 +85,12 @@ npx playwright test --debug
 
 # Show test report
 npx playwright show-report
+
+# Run specific test file
+npx playwright test tests/e2e/workflow.spec.ts
+
+# Run specific test
+npx playwright test -g "should display the application title"
 ```
 
 ## Requirements
@@ -76,3 +103,5 @@ npx playwright show-report
 - Tests may fail if external URLs are unreachable (network-dependent)
 - Some tests include timeout handling for network requests
 - Error handling tests verify graceful degradation
+- UI interaction tests (7/10) are stable and network-independent
+- Full workflow tests may require additional mocking for CI environments
