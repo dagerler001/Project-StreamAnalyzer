@@ -7,6 +7,8 @@ import { LadderTable } from './components/LadderTable'
 import { SampleControls } from './components/SampleControls'
 import { BitrateChart } from './components/BitrateChart'
 import { CodecSummary } from './components/CodecSummary'
+import { ReportPanel } from './report/components/ReportPanel'
+import { getAllPolicies } from './scoring/policies/policyRegistry'
 
 function App() {
   const {
@@ -17,6 +19,10 @@ function App() {
     updateSampleConfig,
     runSample,
     retrySample,
+    scoreState,
+    selectedPolicy,
+    setSelectedPolicy,
+    runScoring,
   } = usePlaylistAnalysis()
 
   const handleAnalyze = (inputType: InputType, value: string | File) => {
@@ -31,10 +37,9 @@ function App() {
     <div className="app">
       <header className="app-header">
         <p className="app-kicker">Stream ABR Advisor</p>
-        <h1 className="app-title">Sampling + Metrics</h1>
+        <h1 className="app-title">Scoring + Report</h1>
         <p className="app-subtitle">
-          Phase 2: Configure sample windows, probe bitrate, and extract codec
-          telemetry from live or VOD streams.
+          Phase 3: Evaluate ABR ladders against best practices and get actionable recommendations.
         </p>
       </header>
 
@@ -105,6 +110,20 @@ function App() {
                 </section>
 
                 {/* Sample Results Section */}
+                {/* Scoring Report Section */}
+                {state.status === 'success' && (
+                  <section className="results-section">
+                    <h3 className="results-section-title">Scoring Report</h3>
+                    <ReportPanel
+                      scoreState={scoreState}
+                      selectedPolicy={selectedPolicy}
+                      availablePolicies={getAllPolicies()}
+                      onPolicyChange={setSelectedPolicy}
+                      onRunScoring={runScoring}
+                    />
+                  </section>
+                )}
+
                 {sampleState.status !== 'idle' && (
                   <section className="results-section">
                     <h3 className="results-section-title">Sample Results</h3>
