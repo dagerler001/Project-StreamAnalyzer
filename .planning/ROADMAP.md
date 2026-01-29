@@ -58,10 +58,15 @@ Plans:
   2. User can see an overall score with best-practice warnings and clear reasons.
   3. User can see concrete ABR ladder improvement recommendations.
   4. User can view an on-screen report that includes the score, charts, and recommendations.
-**Plans**: TBD
+**Plans**: 6 plans
 
 Plans:
-- [ ] 03-01: TBD
+- [ ] 03-01-PLAN.md — Create scoring types and policy profiles
+- [ ] 03-02-PLAN.md — Implement scoring rules (TDD)
+- [ ] 03-03-PLAN.md — Build scoring engine and recommendation system
+- [ ] 03-04-PLAN.md — Create score visualization components (gauge, bar chart)
+- [ ] 03-05-PLAN.md — Build warning list, recommendation list, ladder comparison
+- [ ] 03-06-PLAN.md — Integrate ReportPanel into app with full UI
 
 ## Progress
 
